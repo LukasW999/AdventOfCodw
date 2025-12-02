@@ -22,7 +22,8 @@ public class Day_1_Secret_Entrance {
             int intNumber = Integer.parseInt(number);
             int tempCurrent = currentNumber;
             if (intNumber>100){
-
+               String a = String.valueOf(String.valueOf(intNumber).charAt(1) + String.valueOf(intNumber).charAt(2));
+               intNumber= Integer.parseInt(a);
             }
             if (direction == 'L'){
                 currentNumber = currentNumber - intNumber;
