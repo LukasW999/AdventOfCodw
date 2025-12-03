@@ -1,6 +1,5 @@
 package org.example.fuenfUndZwanzig;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ public class Day_1_Secret_Entrance {
         Scanner s = new Scanner(f);
         int currentNumber = 50;
         int zeroCounter = 0;
-        while (s.hasNext()){
+        while (s.hasNext()) {
             String directionAndNumber = s.next();
             String number = String.valueOf(directionAndNumber.charAt(1));
             char direction = directionAndNumber.charAt(0);
@@ -21,23 +20,24 @@ public class Day_1_Secret_Entrance {
             }
             int intNumber = Integer.parseInt(number);
             int tempCurrent = currentNumber;
-            if (intNumber>100){
-               String a = String.valueOf(String.valueOf(intNumber).charAt(1) + String.valueOf(intNumber).charAt(2));
-               intNumber= Integer.parseInt(a);
+            if (intNumber > 100) {
+                String a = String.valueOf(String.valueOf(intNumber).charAt(1));
+                a = a.concat(String.valueOf(String.valueOf(intNumber).charAt(2)));
+                intNumber = Integer.parseInt(a);
             }
-            if (direction == 'L'){
+            if (direction == 'L') {
                 currentNumber = currentNumber - intNumber;
-                if (currentNumber<0){
-                    currentNumber+=100;
+                if (currentNumber < 0) {
+                    currentNumber += 100;
                 }
-            }else {
+            } else {
                 currentNumber = currentNumber + intNumber;
-                if (currentNumber>100){
-                    currentNumber-=100;
+                if (currentNumber > 100) {
+                    currentNumber -= 100;
                 }
             }
-            System.out.println("anweisung"+directionAndNumber+" vorher "+tempCurrent+ "-> "+currentNumber);
-            if (currentNumber==0){
+            System.out.println("anweisung" + directionAndNumber + " vorher " + tempCurrent + "-> " + currentNumber);
+            if (currentNumber == 0) {
                 zeroCounter++;
             }
         }
